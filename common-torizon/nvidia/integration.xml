@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <remote alias="repo" fetch="https://github.com/OE4T" name="tegra"/>
-  <remote alias="repo" fetch="https://github.com/iris-GmbH" name="cyclonedx"/>
-  <remote alias="repo" fetch="https://github.com/Freescale" name="community"/>
   <remote alias="repo" fetch="https://git.yoctoproject.org" name="yp"/>
   <remote alias="repo" fetch="https://github.com/openembedded" name="oe"/>
   <remote alias="repo" fetch="https://git.yoctoproject.org/git" name="ti"/>
 
   <remote alias="repo" fetch="https://github.com/uptane"  name="uptane"/>
   <remote alias="repo" fetch="https://github.com/torizon" name="torizon"/>
-  <remote alias="repo" fetch="https://github.com/toradex" name="toradex"/>
-  <remote alias="repo" fetch="https://git.toradex.com/"   name="git-toradex"/>
 
   <default sync-j="4" sync-s="true"/>
 
@@ -18,26 +14,13 @@
   <project name="openembedded-core" remote="oe" path="layers/openembedded-core" revision="a9a785d7fa0cfe2a9087dbcde0ef9f0d2a441375" upstream="scarthgap"/>
   <project name="bitbake" path="layers/openembedded-core/bitbake" remote="oe" revision="10118785e4a670bce4980e1044c0888a8b6e84af"/>
 
-  <project name="meta-freescale" remote="community" path="layers/meta-freescale" revision="902dde8c5bd29bb507ac8d37772565a6c9ab77cd" upstream="scarthgap"/>
-  <project name="meta-freescale-3rdparty" remote="community" path="layers/meta-freescale-3rdparty" revision="70c83e96c7f75e73245cb77f1b0cada9ed4bbc6d" upstream="scarthgap"/>
-  <project name="meta-freescale-distro" remote="community" path="layers/meta-freescale-distro" revision="b9d6a5d9931922558046d230c1f5f4ef6ee72345" upstream="scarthgap"/>
-
-  <project name="meta-arm" remote="yp" path="layers/meta-arm" revision="a81c19915b5b9e71ed394032e9a50fd06919e1cd" upstream="scarthgap"/>
   <project name="meta-virtualization" remote="yp" path="layers/meta-virtualization" revision="f92518e20530edfebca45e4170e11460949a5303" upstream="scarthgap"/>
-  <project name="meta-security" remote="yp" path="layers/meta-security" revision="97e482b71688b62ac1109d16e89368122f039cbf" upstream="scarthgap"/>
-  <project name="meta-cyclonedx" remote="cyclonedx" path="layers/meta-cyclonedx" revision="397efda0527620f6fdc08d9a1457093433333bef" upstream="scarthgap"/>
-  <project name="meta-ti" remote="ti" path="layers/meta-ti" revision="5258ee2f903d8f1e0cbcb9d01488d08b57314009" upstream="scarthgap"/>
   <project name="meta-yocto" remote="ti" path="layers/meta-yocto" revision="94d19f9d8392f8a125764df0f8eda04205c7e76c" upstream="scarthgap"/>
-  
+
   <project name="meta-tegra" remote="tegra" path="layers/meta-tegra" revision="447c21467f65be2389f68a189b6871f13729d222" upstream="scarthgap"/>
 
   <project name="meta-updater" path="layers/meta-updater" remote="uptane" revision="b275153c9c8ea09e27d41db9f2faba3ebf92d2c2"/>
   <project name="meta-toradex-torizon" path="layers/meta-toradex-torizon" remote="torizon" revision="scarthgap-7.x.y">
     <linkfile dest="setup-environment" src="scripts/setup-environment"/>
     </project>
-  <project name="meta-toradex-bsp-common" path="layers/meta-toradex-bsp-common" remote="git-toradex" revision="scarthgap-7.x.y"/>
-  <project name="meta-toradex-distro" path="layers/meta-toradex-distro" remote="git-toradex" revision="scarthgap-7.x.y"/>
-  <project name="meta-toradex-nxp" path="layers/meta-toradex-nxp" remote="git-toradex" revision="scarthgap-7.x.y"/>
-  <project name="meta-toradex-security" path="layers/meta-toradex-security" remote="toradex" revision="scarthgap-7.x.y"/>
-  <project name="meta-toradex-ti" path="layers/meta-toradex-ti" remote="git-toradex" revision="scarthgap-7.x.y"/>
 </manifest>
