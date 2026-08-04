@@ -74,3 +74,13 @@ do_install:append() {
 
     install -m 755 ${UNPACKDIR}/torizon-recover ${D}${nonarch_libdir}/systemd
 }
+
+# TODO: drop once meta-updater removes its systemd_%.bbappend (fix proposed
+# upstream). Upstream systemd stopped pre-creating ${localstatedir}/lib/systemd
+# at install time (systemd/systemd@9013347ba956), so meta-updater's
+# do_install:append:sota unconditionally fails trying to rmdir a directory
+# that no longer exists. Recreate it ourselves, before that append runs, so
+# rmdir has something to remove.
+do_install:prepend() {
+    install -d ${D}${localstatedir}/lib/systemd
+}
