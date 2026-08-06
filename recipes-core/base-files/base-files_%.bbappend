@@ -21,7 +21,7 @@ do_install_basefilesissue () {
 
 do_install:append:intel-x86-common() {
 	# Replace fstab with our own for Intel Core i7-64
-	install -m 644 ${WORKDIR}/x86/fstab ${D}${sysconfdir}/fstab
+	install -m 644 ${UNPACKDIR}/x86/fstab ${D}${sysconfdir}/fstab
 }
 
 do_install:append:cfs-support () {
@@ -32,6 +32,6 @@ do_install:append:cfs-support () {
 
 do_install:append:beagley-ai() {
 	install -d ${D}/boot/vendor_boot
-    install -m 644 ${WORKDIR}/beagley-ai/fstab ${D}${sysconfdir}/fstab
+    install -m 644 ${UNPACKDIR}/beagley-ai/fstab ${D}${sysconfdir}/fstab
 }
 
