@@ -12,6 +12,15 @@ BBMASK += " \
     /meta-arm/recipes-test/pacbti/test-pacbti.bb \
 "
 
+# TEMPORARY: oe-core bumped weston 15.0.1 -> 16.0.0 (ad85da159d4, 2026-08-10)
+# but meta-ti/meta-ti-bsp still ships weston_15.0.%.bbappend, which no longer
+# matches any recipe and is a hard parse error. Mask it out and carry the
+# equivalent override ourselves (recipes-graphics/wayland/weston_16.0.%.bbappend)
+# until meta-ti ships a weston_16.0.%.bbappend of its own.
+BBMASK += " \
+    /meta-ti-bsp/recipes-graphics/wayland/weston_15\.0\.%\.bbappend \
+"
+
 OSTREE_DEPLOY_DEVICETREE = "0"
 
 hostname:pn-base-files ?= "${MACHINE}"
