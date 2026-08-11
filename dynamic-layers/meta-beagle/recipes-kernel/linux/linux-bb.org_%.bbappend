@@ -4,7 +4,6 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI += "\
     file://drm.cfg \
-    file://0001-crypto-scatterwalk-Backport-memcpy_sglist.patch \
     file://CVE-2026-43284.patch \
 "
 KERNEL_CONFIG_FRAGMENTS += "${UNPACKDIR}/drm.cfg"
