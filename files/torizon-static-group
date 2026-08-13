@@ -48,6 +48,7 @@ sgx:x:104:
 ptest:x:529:
 empower:x:533:
 systemd-coredump:x:980:
+debug:x:981
 teeclnt:x:982:
 tss:x:983:
 systemd-bus-proxy:x:984:
