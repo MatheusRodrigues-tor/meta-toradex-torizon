@@ -85,15 +85,15 @@ EOF
         fi
         partition_count=$(expr $partition_count + 1)
     done
-    # Create a SYNAIMG-flash.tar.gz file with SYNAIMG, usb-tool and recovery folder inside.
-    install -d ${DEPLOY_DIR_IMAGE}/${SYNAIMG_DEPLOY_SUBDIR}-flash
+    # Bundle SYNAIMG, usb-tool and recovery scripts into ${IMAGE_NAME}.tar.gz
+    rm -rf ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME} ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.tar.gz
+    install -d ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}
     (
         cd ${DEPLOY_DIR_IMAGE}
-        cp -L -R syna-metadata/* syna-usb-tool/* ${SYNAIMG_DEPLOY_SUBDIR} ${SYNAIMG_DEPLOY_SUBDIR}-flash
-        if [ -d syna2img-tools ]; then
-            cp -L -R syna2img-tools/* ${SYNAIMG_DEPLOY_SUBDIR}-flash
-        fi
-        tar -czf ${SYNAIMG_DEPLOY_SUBDIR}-flash.tar.gz -C ${DEPLOY_DIR_IMAGE} ${SYNAIMG_DEPLOY_SUBDIR}-flash
+        cp -L -R syna-metadata/* syna-usb-tool/* syna2img-tools/* ${SYNAIMG_DEPLOY_SUBDIR} ${IMAGE_NAME}
+        tar -czf ${IMAGE_NAME}.tar.gz ${IMAGE_NAME}
+        rm -rf ${IMAGE_NAME}
+        ln -sf ${IMAGE_NAME}.tar.gz ${IMAGE_LINK_NAME}.tar.gz
     )
 }
 do_image_ota_ext4[depends] += "syna-metadata:do_deploy syna-usb-tool:do_deploy"
